@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MedistockAppCore.Models.Medicine>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FormatM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpirationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkIdCategoryNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormatM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpirationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkIdCategoryNavigation.IdCategory)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMedicine">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMedicine">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMedicine">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

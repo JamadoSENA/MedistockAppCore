@@ -1,0 +1,57 @@
+﻿@model MedistockAppCore.Models.Medicine
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>Medicine</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NameM)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NameM)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FormatM)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FormatM)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ExpirationDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FkIdCategoryNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FkIdCategoryNavigation.IdCategory)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdMedicine">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

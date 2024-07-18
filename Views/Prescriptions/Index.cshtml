@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MedistockAppCore.Models.Prescription>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescriptionP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicines)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkIdSchedulingNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescriptionP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medicines)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkIdSchedulingNavigation.IdScheduling)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdPrescription">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdPrescription">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdPrescription">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
